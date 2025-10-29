@@ -1,0 +1,23 @@
+package main
+
+import (
+	"fmt"
+)
+
+
+func FirstWord(s string) string {
+
+	FirstWord := ""
+	start := 0
+
+	for start < len(s) && s[start] == ' ' {
+		start++
+	}
+
+	for start < len(s) && s[start] != ' ' {
+		FirstWord += string(s[start]) 
+		start++
+	}
+
+	return FirstWord
+}

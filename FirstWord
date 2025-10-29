@@ -15,7 +15,7 @@ func FirstWord(s string) string {
 	}
 
 	for start < len(s) && s[start] != ' ' {
-		FirstWord += string(s[start]) 
+		FirstWord = FirstWord + string(s[start])
 		start++
 	}
 

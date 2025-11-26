@@ -6,9 +6,17 @@ func FindPrevPrime(nb int) int {
 	if nb < 2 {
 		return 0
 	}
-	for i := 2; i*i <= nb; i++ {
-		if nb%i == 0 {
-			return isprime
+	for n := nb; n >= 2; n-- {
+		isprime := true
+		for i := 2; i*i <= n; i++ {
+			if n%i == 0 {
+				isprime = false
+				break
+			}
+
+		}
+		if isprime {
+			return n
 		}
 	}
 	return 0

@@ -2,27 +2,28 @@ package main
 
 import "fmt"
 
-func repeatalpha(s string) string {
-	var result []rune
-	count := 0
-	for _, c := range s {
-		if c >= 'a' && c <= 'z' {
-			count = int((c - 'a') + 1)
-		} else if c >= 'A' && c <= 'Z' {
-			count = int((c - 'A') + 1)
-		} else {
-			count = 1
+func RepeatAlpha(s string) string {
+	result := ""
+
+	for i := 0; i < len(s); i++ {
+		ch := s[i]
+		count := 1
+		if ch >= 'a' && ch <= 'z' {
+			count = int((ch - 'a') + 1)
 		}
-		for i := 0; i < count; i++ {
-			result = append(result, c)
+		if ch >= 'A' && ch <= 'Z' {
+			count = int((ch - 'A') + 1)
+		}
+		for j := 0; j < count; j++ {
+			result += string(ch)
 		}
 	}
-	return string(result)
+	return result
 }
 
 func main() {
-	fmt.Println(repeatalpha("abc"))
-	fmt.Println(repeatalpha("Choumi."))
-	fmt.Println(repeatalpha(""))
-	fmt.Println(repeatalpha("abacadaba 01!"))
+	fmt.Println(RepeatAlpha("abc"))
+	fmt.Println(RepeatAlpha("Choumi."))
+	fmt.Println(RepeatAlpha(""))
+	fmt.Println(RepeatAlpha("abacadaba 01!"))
 }

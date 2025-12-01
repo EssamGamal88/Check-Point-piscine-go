@@ -1,24 +1,22 @@
 package main
 
-import (
-	"fmt"
-)
-
+import "fmt"
 
 func LastWord(s string) string {
-
-	lastWord := ""
+	lastword := ""
 	end := len(s) - 1
-
 	for end >= 0 && s[end] == ' ' {
 		end--
 	}
-
 	for end >= 0 && s[end] != ' ' {
-		lastWord = string(s[end]) + lastWord 
+		lastword = string(s[end]) + lastword
 		end--
 	}
-
-	return lastWord
+	return lastword + "\n"
 }
 
+func main() {
+	fmt.Print(LastWord("this        ...       is sparta, then again, maybe    not"))
+	fmt.Print(LastWord(" lorem,ipsum "))
+	fmt.Print(LastWord(" "))
+}

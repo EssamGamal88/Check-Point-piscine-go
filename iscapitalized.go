@@ -6,13 +6,12 @@ func IsCapitalized(s string) bool {
 	if len(s) == 0 {
 		return false
 	}
-	runes := []rune(s)
-	if runes[0] >= 'a' && runes[0] <= 'z' {
+	if s[0] >= 'a' && s[0] <= 'z' {
 		return false
 	}
-	for i := 1; i < len(runes); i++ {
-		if runes[i-1] == ' ' {
-			if runes[i] >= 'a' && runes[i] <= 'z' {
+	for i := 1; i < len(s); i++ {
+		if s[i-1] == ' ' {
+			if s[i] >= 'a' && s[i] <= 'z' {
 				return false
 			}
 		}

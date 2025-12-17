@@ -1,0 +1,37 @@
+package main
+
+import "fmt"
+
+func CanJump(s []uint) bool {
+	if len(s) == 1 {
+		return true
+	}
+	if len(s) == 0 {
+		return false
+	}
+	indx := uint(0)
+	for i := len(s); i > 0; i++ {
+		step := s[indx]
+		if indx+step < uint(len(s)-1) {
+			indx = indx + step
+		}
+		if indx+step == uint(len(s)-1) {
+			return true
+		}
+		if indx+step > uint(len(s)-1) {
+			break
+		}
+	}
+	return false
+}
+
+func main() {
+	input1 := []uint{2, 3, 1, 1, 4}
+	fmt.Println(CanJump(input1))
+
+	input2 := []uint{3, 2, 1, 0, 4}
+	fmt.Println(CanJump(input2))
+
+	input3 := []uint{0}
+	fmt.Println(CanJump(input3))
+}
